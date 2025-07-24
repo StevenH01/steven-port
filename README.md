@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Steven Ho – Developer Portfolio 🚀
 
-## Getting Started
+Welcome to my personal developer portfolio, built using **Next.js 14 (App Router)**, styled with **Tailwind CSS**, animated with **Framer Motion**, and powered by the **Spotify Web API**.
 
-First, run the development server:
+Live site: [https://your-vercel-deployment-url.com](https://your-vercel-deployment-url.com)
+
+---
+
+## 🧰 Tech Stack
+
+- ⚡ [Next.js 14 (App Router)](https://nextjs.org/)
+- 🎨 [Tailwind CSS](https://tailwindcss.com/)
+- 🎵 [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
+- 🎞 [Framer Motion](https://www.framer.com/motion/)
+- 📦 Hosted on [Vercel](https://vercel.com)
+
+---
+
+## 📂 Folder Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+.
+├── app/
+│   ├── layout.tsx           # Root layout
+│   ├── page.tsx             # Home page
+│   ├── globals.css          # Tailwind + global styles
+│   └── api/
+│       └── spotify/
+│           └── route.ts     # Server-side Spotify API handler
+├── components/
+│   ├── AnimatedSection.tsx  # Scroll reveal animation wrapper
+│   └── TopSpotifyGrid.tsx   # Spotify tracks/artists/genres display
+├── public/
+│   └── placeholder.png
+├── postcss.config.mjs
+├── tailwind.config.ts
+├── tsconfig.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚙️ Environment Variables
+```bash
+Create a .env.local file at the root and add:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+env
+Copy
+Edit
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+SPOTIFY_REFRESH_TOKEN=your_spotify_refresh_token
+SPOTIFY_REDIRECT_URI=http://localhost:3000/api/spotify/callback
+RESEND_API_KEY=your_resend_api_key
+```
+Note: Do not commit this file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🚀 Getting Started
+1. Clone the Repository
+```bash
+git clone https://github.com/your-username/steven-portfolio.git
+cd steven-portfolio
+```
 
-## Learn More
+2. Install Dependencies
+```bash
 
-To learn more about Next.js, take a look at the following resources:
+npm install
+```
+3. Run the Development Server
+```bash
+npm run dev
+```
+Visit http://localhost:3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🪄 Features
+Spotify Integration – View your top tracks, artists, and favorite genres dynamically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Scroll-based Animations – Components animate in as they scroll into view.
 
-## Deploy on Vercel
+Dark/Light friendly theme variables – Easily extendable with CSS variables.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Responsive Design – Looks great on desktop and mobile.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🧪 Build & Deploy
+Build
+```bash
+npm run build
+```
+Preview
+```bash
+npm run start
+```
+Deploy
+Deploy directly using Vercel CLI:
+
+vercel
+🔐 Security & Tips
+Do not expose your Spotify credentials.
+
+Rotate your refresh token occasionally.
+
+Use environment variables in Vercel Dashboard for deployment.
+
+🙋‍♂️ Author
+Steven Ho
+
+Connect with me on LinkedIn or check out more at your-domain.com
+
+📜 License
+This project is licensed under the MIT License.
+
+---
