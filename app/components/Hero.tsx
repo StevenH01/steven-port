@@ -50,7 +50,7 @@ export const Hero = () => {
       </div>
 
       {/* Profile Image */}
-      <AnimatedSection delay={0.5}>
+      <AnimatedSection delay={0.6}>
         <Image
           src="/profile-placeholder.png"
           alt="Steven Ho illustration"

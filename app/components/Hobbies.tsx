@@ -2,6 +2,7 @@
 
 import { AnimatedSection } from './AnimatedSection'
 import { FaCamera, FaHiking, FaCoffee, FaGamepad } from 'react-icons/fa'
+import { TopSpotifyGrid } from './TopSpotifyGrid'
 
 const hobbies = [
   { icon: <FaCamera />, label: 'Photography' },
@@ -30,6 +31,8 @@ export const Hobbies = () => {
           ))}
         </div>
       </AnimatedSection>
+
+      <TopSpotifyGrid />
     </section>
   )
 }
