@@ -50,7 +50,7 @@ export const Hero = () => {
       </div>
 
       {/* Profile Image */}
-      <AnimatedSection delay={0.6}>
+      {/* <AnimatedSection delay={0.6}>
         <Image
           src="/profile-placeholder.png"
           alt="Steven Ho illustration"
@@ -58,7 +58,7 @@ export const Hero = () => {
           height={320}
           className="rounded-xl shadow-md mb-10 md:mb-0"
         />
-      </AnimatedSection>
+      </AnimatedSection> */}
 
       {/* Background Accent */}
       <div className="absolute top-[-100px] -left-[100px] w-[500px] h-[500px] bg-[var(--primary)] opacity-10 rounded-full blur-3xl pointer-events-none" />
