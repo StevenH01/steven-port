@@ -8,20 +8,44 @@ import { AnimatedSection } from './AnimatedSection'
 
 const allProjects = [
   {
-    title: 'Roomies',
-    description: 'A student-focused roommate finder platform using Next.js and Spring Boot.',
-    tech: ['Next.js', 'Tailwind', 'Spring Boot', 'MongoDB'],
-    github: 'https://github.com/yourusername/roomies',
-    live: 'https://roomies.vercel.app',
-  },
-  {
     title: 'RedAI',
     description: 'An AI-powered red teaming assistant for cybersecurity assessments.',
     tech: ['Next.js', 'FastAPI', 'OpenAI'],
     github: 'https://github.com/yourusername/redai',
     live: '',
   },
-]
+  {
+    title: 'Prosper AutoWerks',
+    description:
+      'Full-stack app for a local tint/wrap shop: automated quotes, email/SMS notifications, and secure auth with Google.',
+    tech: ['Next.js', 'Supabase', 'Nodemailer', 'vtext', 'Google OAuth 2.0', 'Google Calendar API'],
+    github: 'https://github.com/StevenH01/prosper-auto',
+    live: 'https://prosperautowerks.com/',
+  },
+  {
+    title: 'F1 Prediction Model',
+    description:
+      'Machine learning pipeline to predict race outcomes using historical driver/team data, qualifying results, and track features.',
+    tech: ['Python', 'NumPy', 'Pandas', 'scikit-learn', 'Matplotlib', 'FastAPI'],
+    github: 'https://github.com/StevenH01/f1-prediction-model',
+  },
+  {
+    title: 'Roomies (In Progress)',
+    description: 'A student-focused roommate finder platform using Next.js.',
+    tech: ['Next.js', 'Tailwind', 'MaterialUi', 'MongoDB'],
+    github: 'https://github.com/StevenH01/roomies-frontend',
+    live: 'roomies-frontend-eight.vercel.app',
+  },
+  {
+    title: 'The Lamby Shop (Deprecated)',
+    description:
+      'Full-scale e-commerce site with secure checkout and inventory management; serverless backend on AWS and Stripe payments.',
+    tech: ['React', 'Next.js', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'Stripe', 'Figma'],
+    github: 'https://github.com/zzzkevon/the-lamby-shop', 
+    live: 'https://the-lamby-shop.vercel.app/',
+  },
+];
+
 
 const allTags = ['All', ...new Set(allProjects.flatMap(p => p.tech))]
 
