@@ -16,9 +16,9 @@ const techStack = [
 ]
 
 const stats = [
-  { label: 'Years of Experience', value: '3+' },
-  { label: 'Projects Built', value: '15+' },
-  { label: 'Technologies Mastered', value: '10+' },
+  { label: 'Years of Experience', value: '1+' },
+  { label: 'Projects Built', value: '8+' },
+  { label: 'Working Technologies', value: '4+' },
 ]
 
 export const About = () => {
@@ -33,11 +33,10 @@ export const About = () => {
 
       <div className="flex flex-col md:flex-row items-start gap-12 mt-10">
         <AnimatedSection className="flex-1">
-          <p className="text-[color:var(--text-muted)] text-base leading-relaxed">
-            I’m Steven, a passionate developer who enjoys crafting clean, responsive, and interactive user interfaces.
-            My background blends full-stack web development with a strong appreciation for frontend polish and performance.
-            <br /><br />
-            I’ve worked on student-focused platforms, AI-driven tools, and business websites. I love building tools that are both functional and beautiful — and I’m always learning something new.
+          <p className="text-[color:var(--text-muted)] text-base leading-relaxed"> 
+            Hi, I’m Steven, a passionate software engineer driven by a love for building meaningful, impactful tools. My experience spans full-stack development, with a strong focus on crafting responsive, engaging front-end interfaces.
+          <br /><br />
+            I’ve built websites for local businesses, led a team to deliver a full-stack e-commerce platform, and completed an internship where I improved login flows to enhance user experience. I’m always exploring new technologies and constantly learning how to create better, smarter software.
           </p>
         </AnimatedSection>
 

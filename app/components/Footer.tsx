@@ -15,16 +15,16 @@ export const Footer = () => {
 
         {/* Right side */}
         <div className="flex gap-6 items-center justify-center">
-          <Link href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+          <Link href="https://github.com/StevenH01" target="_blank" aria-label="GitHub">
             <FaGithub className="text-xl hover:text-[color:var(--text-main)] transition-colors" />
           </Link>
-          <Link href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+          <Link href="https://www.linkedin.com/in/steven-h0/" target="_blank" aria-label="LinkedIn">
             <FaLinkedin className="text-xl hover:text-[color:var(--text-main)] transition-colors" />
           </Link>
-          <Link href="mailto:you@example.com" aria-label="Email">
+          <Link href="mailto:steven09ho@gmail.com" aria-label="Email">
             <FaEnvelope className="text-xl hover:text-[color:var(--text-main)] transition-colors" />
           </Link>
-          <Link href="/resume.pdf" target="_blank" aria-label="Resume">
+          <Link href="/Ho_Steven_Resume_2025.pdf" target="_blank" aria-label="Resume">
             <FaFileDownload className="text-xl hover:text-[color:var(--text-main)] transition-colors" />
           </Link>
         </div>
