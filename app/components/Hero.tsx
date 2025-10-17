@@ -27,7 +27,7 @@ export const Hero = () => {
 
         <AnimatedSection delay={0.3}>
           <h2 className="text-[color:var(--text-muted)] text-xl sm:text-2xl mt-2">
-            I build clean, responsive UIs with performance and polish.
+            I currently am building websites for local businesses and am looking for my next adventure!
           </h2>
         </AnimatedSection>
 
