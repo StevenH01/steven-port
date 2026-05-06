@@ -2,37 +2,149 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import '@fontsource/inter/index.css'; */
-
 :root {
-  --bg-main: #f9f9f9;
-  --primary: #4a5c1b;
-  --accent: #4ADE80;
-  --text-main: #111827;
-  --text-muted: #6B7280;
-  --border: #E5E7EB;
+  /* Earthy, warm surfaces */
+  --bg-page: #f3ead5;          /* linen */
+  --bg-cream: #ebdfc2;          /* warm cream */
+  --bg-sand: #e0d0a8;           /* sand */
+  --bg-stone: #d8c9a0;           /* deeper stone */
+  --bg-card: #faf4e3;            /* lifted cream */
+  --bg-main: #f8f1dd;            /* slightly lighter linen for default sections */
+
+  /* Text — warm near-black, never cold */
+  --text-main: #1c1a14;
+  --text-body: #2f2c22;
+  --text-muted: #6b6555;
+  --text-subtle: #9c947f;
+
+  /* Borders — soft warm taupe */
+  --border: #d8cdb1;
+  --border-strong: #c4b790;
+
+  /* Brand — moss/olive earth tones */
+  --olive: #3d4a16;
+  --olive-strong: #2c360e;
+  --olive-soft: #5d6e26;
+  --moss: #7a8a4a;
+  --sage: #b9c682;
+  --sage-light: #d6deac;
+
+  /* Optional warm accent */
+  --terracotta: #b86d3f;
+  --bark: #5b4a2e;
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
-  background-color: var(--bg-main);
+  background-color: var(--bg-page);
+  color-scheme: light;
 }
 
 body {
-  color: var(--text-main);
-  background-color: var(--bg-main);
+  color: var(--text-body);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display serif used for big headlines */
+.font-display {
+  font-family: var(--font-fraunces), 'Fraunces', 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'ss01', 'ss02';
+}
+
+/* Eyebrow label — olive uppercase */
+.eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--olive);
 }
 
 * {
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.25s ease;
 }
 
 a {
-  color: var(--primary);
-  text-decoration: underline;
+  color: var(--olive);
+  text-decoration: none;
 }
 
 a:hover {
-  color: #174db8;
+  color: var(--olive-strong);
+}
+
+::selection {
+  background: var(--sage);
+  color: var(--olive-strong);
+}
+
+/* Pill buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn-olive {
+  background: var(--olive);
+  color: #fff;
+}
+.btn-olive:hover {
+  background: var(--olive-strong);
+  color: #fff;
+}
+
+.btn-sage {
+  background: var(--sage-light);
+  color: var(--olive-strong);
+}
+.btn-sage:hover {
+  background: var(--sage);
+  color: var(--olive-strong);
+}
+
+.btn-ghost-light {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-strong);
+}
+.btn-ghost-light:hover {
+  background: var(--bg-cream);
+  border-color: var(--olive);
+  color: var(--olive);
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: var(--border);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--moss);
 }
