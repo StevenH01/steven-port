@@ -20,9 +20,7 @@ export const ScrollDots = () => {
             setActive(id)
           }
         },
-        {
-          threshold: 0.4,
-        }
+        { threshold: 0.4 }
       )
 
       observer.observe(el)
@@ -34,22 +32,31 @@ export const ScrollDots = () => {
 
   const handleDotClick = (id: string) => {
     const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
-    <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-[999] hidden md:flex flex-col gap-3">
+    <div className="fixed right-5 top-1/2 transform -translate-y-1/2 z-[60] hidden lg:flex flex-col gap-3">
       {sections.map(id => (
         <button
           key={id}
           onClick={() => handleDotClick(id)}
-          className={`w-3 h-3 rounded-full transition-all border border-[var(--primary)] ${
-            active === id ? 'bg-[var(--primary)] scale-125' : 'bg-transparent'
-          }`}
+          className="group relative flex items-center"
           aria-label={`Scroll to ${id}`}
-        />
+        >
+          <span
+            className="absolute right-6 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider whitespace-nowrap bg-white border border-[var(--border)] opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition pointer-events-none text-[color:var(--text-muted)]"
+          >
+            {id}
+          </span>
+          <span
+            className={`block rounded-full transition-all ${
+              active === id
+                ? 'w-3 h-3 bg-[var(--olive)]'
+                : 'w-2 h-2 bg-transparent border border-[var(--border-strong)] group-hover:border-[var(--olive)]'
+            }`}
+          />
+        </button>
       ))}
     </div>
   )

@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
 import { AnimatedSection } from './AnimatedSection'
+import { Panel } from './Panel'
 
 const allProjects = [
   {
@@ -30,95 +30,117 @@ const allProjects = [
     github: 'https://github.com/StevenH01/f1-prediction-model',
   },
   {
-    title: 'Roomies (In Progress)',
-    description: 'A student-focused roommate finder platform using Next.js.',
+    title: 'Roomies',
+    description: 'A student-focused roommate finder platform — currently in progress.',
     tech: ['Next.js', 'Tailwind', 'MaterialUi', 'MongoDB'],
     github: 'https://github.com/StevenH01/roomies-frontend',
     live: 'roomies-frontend-eight.vercel.app',
   },
   {
-    title: 'The Lamby Shop (Deprecated)',
+    title: 'The Lamby Shop',
     description:
       'Full-scale e-commerce site with secure checkout and inventory management; serverless backend on AWS and Stripe payments.',
     tech: ['React', 'Next.js', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'Stripe', 'Figma'],
-    github: 'https://github.com/zzzkevon/the-lamby-shop', 
+    github: 'https://github.com/zzzkevon/the-lamby-shop',
     live: 'https://the-lamby-shop.vercel.app/',
   },
-];
-
+]
 
 const allTags = ['All', ...new Set(allProjects.flatMap(p => p.tech))]
 
 export const Projects = () => {
   const [activeTag, setActiveTag] = useState('All')
+  const filtered = allProjects.filter(p => activeTag === 'All' || p.tech.includes(activeTag))
 
   return (
-    <section id="projects" className="relative max-w-7xl mx-auto px-6 pt-24 pb-16">
-      <div className="absolute -top-16 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[var(--bg-main)] pointer-events-none z-0" />
+    <Panel id="projects" tone="cream" className="px-6 sm:px-10 lg:px-16 pt-28 pb-28">
+      <div className="max-w-[1280px] mx-auto">
+        <AnimatedSection>
+          <p className="eyebrow">PROJECTS</p>
+          <h2 className="font-display text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] mt-4 text-[color:var(--text-main)]">
+            Selected work.
+          </h2>
+          <p className="text-[color:var(--text-muted)] mt-6 max-w-xl text-base sm:text-lg">
+            A handful of things I've built — full-stack platforms, ML pipelines, and tools for local businesses.
+          </p>
+        </AnimatedSection>
 
-      <AnimatedSection>
-        <h2 className="text-3xl font-bold text-[color:var(--text-main)]">Projects</h2>
-        <p className="text-[color:var(--text-muted)] mt-2 max-w-xl">
-          A selection of things I've built using web technologies — from full-stack platforms to internal tools.
-        </p>
-      </AnimatedSection>
+        <AnimatedSection>
+          <div className="flex flex-wrap gap-2 mt-10">
+            {allTags.map(tag => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(tag)}
+                className={`px-3.5 py-1.5 rounded-full text-xs border transition ${
+                  activeTag === tag
+                    ? 'bg-[var(--olive)] text-white border-[var(--olive)]'
+                    : 'bg-[var(--bg-card)] text-[color:var(--text-muted)] border-[var(--border-strong)] hover:text-[color:var(--olive)] hover:border-[var(--olive)]'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </AnimatedSection>
 
-      <AnimatedSection>
-        <div className="flex flex-wrap gap-3 mb-8 z-10 relative">
-          {allTags.map(tag => (
-            <button
-              key={tag}
-              onClick={() => setActiveTag(tag)}
-              className={`px-3 py-1 rounded-full text-sm border transition ${
-                activeTag === tag
-                  ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
-                  : 'border-[var(--border)] text-[color:var(--text-muted)] hover:bg-[var(--bg-main)]'
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      </AnimatedSection>
-
-      <div className="grid gap-8 md:grid-cols-2 relative z-10">
-        {allProjects
-          .filter(p => activeTag === 'All' || p.tech.includes(activeTag))
-          .map((project, idx) => (
-            <AnimatedSection key={idx} delay={idx * 0.1}>
-              <div className="bg-white border border-[var(--border)] rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:-translate-y-1 duration-300">
-                <h3 className="text-xl font-semibold text-[color:var(--text-main)] mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-[color:var(--text-muted)] mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-[color:var(--text-muted)] mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="bg-[var(--bg-main)] border border-[var(--border)] px-2 py-1 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+        {/* Numbered list, divider style */}
+        <div className="mt-16 border-t border-[var(--border)]">
+          {filtered.map((project, idx) => (
+            <AnimatedSection key={idx} delay={idx * 0.05}>
+              <div className="group grid grid-cols-12 gap-4 sm:gap-8 py-8 sm:py-10 border-b border-[var(--border)] hover:bg-[var(--bg-card)] px-2 sm:px-4 -mx-2 sm:-mx-4 rounded-xl">
+                <div className="col-span-12 sm:col-span-1 text-[color:var(--text-subtle)] text-sm font-mono pt-1">
+                  {String(idx + 1).padStart(2, '0')}
                 </div>
-                <div className="flex gap-4 text-sm">
+
+                <div className="col-span-12 sm:col-span-5">
+                  <h3 className="font-display text-2xl sm:text-3xl text-[color:var(--text-main)]">
+                    {project.title}
+                  </h3>
+                </div>
+
+                <div className="col-span-12 sm:col-span-4">
+                  <p className="text-sm text-[color:var(--text-muted)] leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] font-mono text-[color:var(--text-muted)] bg-[var(--bg-card)] border border-[var(--border)] px-2 py-0.5 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="col-span-12 sm:col-span-2 flex sm:justify-end items-start gap-2 pt-1">
                   {project.github && (
-                    <Link href={project.github} target="_blank" className="flex items-center gap-1 text-[color:var(--primary)] hover:underline">
-                      <FaGithub /> GitHub
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      aria-label="GitHub"
+                      className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-strong)] text-[color:var(--text-main)] hover:bg-[var(--olive)] hover:text-white hover:border-[var(--olive)] transition"
+                    >
+                      <FaGithub size={14} />
                     </Link>
                   )}
                   {project.live && (
-                    <Link href={project.live} target="_blank" className="flex items-center gap-1 text-[color:var(--primary)] hover:underline">
-                      <FaExternalLinkAlt /> Live Demo
+                    <Link
+                      href={project.live}
+                      target="_blank"
+                      aria-label="Live demo"
+                      className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-strong)] text-[color:var(--text-main)] hover:bg-[var(--olive)] hover:text-white hover:border-[var(--olive)] transition"
+                    >
+                      <FaExternalLinkAlt size={12} />
                     </Link>
                   )}
                 </div>
               </div>
             </AnimatedSection>
           ))}
+        </div>
       </div>
-    </section>
+    </Panel>
   )
 }

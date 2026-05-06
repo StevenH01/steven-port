@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { ScrollDots } from "./components/scrolling/ScrollDots";
 import { Toaster } from "react-hot-toast";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
+  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
@@ -30,13 +33,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${fraunces.variable} antialiased bg-[var(--bg-page)]`}
       >
-        {/* <ScrollProgress /> */}
         <ScrollDots />
-        <Toaster />
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: '#ffffff',
+              color: '#0a0a0a',
+              border: '1px solid #e6e6e6',
+              borderRadius: '9999px',
+              padding: '10px 16px',
+              fontSize: '14px',
+            },
+          }}
+        />
         <Navbar />
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer />
         <Analytics />
       </body>
